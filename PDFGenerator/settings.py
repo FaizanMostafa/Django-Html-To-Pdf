@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 
 # Quick-start development settings - unsuitable for production
@@ -115,26 +116,18 @@ USE_L10N = True
 
 USE_TZ = True
 
-#WKHTML Configurations
-WKHTMLTOPDF_CMD_OPTIONS = {
-    'quiet': True
-}
-
-if os.name != 'nt':
-    WKHTMLTOPDF_CMD = '/usr/local/bin/wkhtmltopdf'
-else:
-    WKHTMLTOPDF_DEBUG = True
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
-
 def ABS_DIR(rel):
     return os.path.join(BASE_DIR, rel.replace('/', os.path.sep))
 
-MEDIA_ROOT = ABS_DIR('PDFGenerator/media/')
+MEDIA_ROOT = ABS_DIR('PDFGenerator/site_media/')
 MEDIA_URL = '/media/'
-STATIC_URL = '/static/'
 STATIC_ROOT = ABS_DIR('PDFGenerator/static/')
-STATICFILES_DIRS = [
-    ABS_DIR("static")
-]
+STATIC_URL = '/static/'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+STATICFILES_DIRS = (
+    ABS_DIR('static'),
+)

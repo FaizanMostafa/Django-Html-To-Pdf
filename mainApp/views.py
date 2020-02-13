@@ -11,9 +11,9 @@ class MyPDFView(View):
         response = PDFTemplateResponse(
             request=request,
             template=self.template,
-            filename="hello.pdf",
+            filename="report.pdf",
             context=data,
-            show_content_in_browser=False,
+            show_content_in_browser=True,
             cmd_options={
                 "margin-top": 10,
                 "zoom": 1,
