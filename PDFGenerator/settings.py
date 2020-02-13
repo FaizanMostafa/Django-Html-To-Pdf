@@ -117,7 +117,7 @@ USE_TZ = True
 
 #WKHTML Configurations
 WKHTMLTOPDF_CMD_OPTIONS = {
-    'quiet': False
+    'quiet': True
 }
 
 if os.name != 'nt':
@@ -128,8 +128,13 @@ else:
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+def ABS_DIR(rel):
+    return os.path.join(BASE_DIR, rel.replace('/', os.path.sep))
+
+MEDIA_ROOT = ABS_DIR('PDFGenerator/media/')
+MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
-STATIC_ROOT = '/static/'
+STATIC_ROOT = ABS_DIR('PDFGenerator/static/')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
+    ABS_DIR("static")
 ]
