@@ -6,7 +6,7 @@ class MyPDFView(View):
     template='index.html'
     def get(self, request):
         data={
-            "mydata": "my data"
+            "greetings": "Hell yeah..."
         }
         response = PDFTemplateResponse(
             request=request,
@@ -18,7 +18,7 @@ class MyPDFView(View):
                 "margin-top": 10,
                 "zoom": 1,
                 "viewport-size": "1366 x 513",
-                "javascript-delay": 1000,
+                "javascript-delay": 500,
                 "footer-center": "[page]/[topage]",
                 "no-stop-slow-scripts": True
             }

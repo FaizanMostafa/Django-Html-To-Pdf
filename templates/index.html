@@ -1,27 +1,77 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
         <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main.css' %}" />
-        <!-- Page Styling -->
-        <!-- <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> -->
-        <!-- Latest compiled and minified CSS -->
-        <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"> -->
-        
-        <!-- Date Picker CSS -->
-        <!-- <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" /> -->
-        
-        <!-- Latest compiled and minified JS -->
-        <!-- <script type="text/javascript" src="{% static 'javascript/jquery.min.js'%}"></script>
-        <script type="text/javascript" src="{% static 'javascript/popper.min.js'%}"></script>
-        <script type="text/javascript" src="{% static 'javascript/bootstrap.min.js'%}"></script> -->
+        <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     </head>
+    
     <body>
+
         <div class="outerContainer">
-            <p class="textStyles">Hello World!</p>
+            <p class="textStyles">{{greetings}}</p>
         </div>
+
+        <div id="canvasContainer" style="width: 800px; height: 500px">
+            <canvas id="myChart" style="width: 800px; height: 500px"></canvas>
+        </div>
+        
+
+        <script type="text/javascript">
+            'use strict';
+            (function(setLineDash) {
+                CanvasRenderingContext2D.prototype.setLineDash = function() {
+                    if(!arguments[0].length){
+                        arguments[0] = [1,0];
+                    }
+                    // Now, call the original method
+                    return setLineDash.apply(this, arguments);
+                };
+            })(CanvasRenderingContext2D.prototype.setLineDash);
+            Function.prototype.bind = Function.prototype.bind || function (thisp) {
+                var fn = this;
+                return function () {
+                    return fn.apply(thisp, arguments);
+                };
+            };
+            function drawChart(){
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    // The type of chart we want to create
+                    type: 'pie',
+                    
+                    // The data for our dataset
+                    data: {
+                        datasets: [{
+                            label: 'Red',
+                            backgroundColor: ['red', 'yellow', 'blue', 'green', 'orange'],
+                            data: [10, 20, 20, 10, 15]
+                        }],
+                    
+                        // These labels appear in the legend and in the tooltips when hovering different arcs
+                        labels: [
+                            'Red',
+                            'Yellow',
+                            'Blue',
+                            'Green',
+                            'Orange'
+                        ]
+                    },
+        
+                    // Configuration options go here
+                    options: {
+                        animation: false
+                    }
+                });
+            };
+            window.onload = function() {
+                drawChart();
+            };
+        </script>
+
     </body>
+
 </html>
