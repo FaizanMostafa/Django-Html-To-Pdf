@@ -1,13 +1,126 @@
-.outerContainer {
-    width: 100%;
-    height: 100%;
-    background-color: royalblue !important;
+body {
+    margin: 0;
+    padding: 0;
 }
 
-.textStyles {
-    color: white !important;
-    font-size: 30px;
-    padding-top: 200px;
-    padding-bottom: 200px;
+/* #6BC4CC */
+.container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 700px;
+    margin: 0 auto;
+    background-size: contain;
+}
+
+.heading-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.heading-icon {
+    width: 20px;
+    height: auto;
+    margin-bottom: -4px;
+}
+
+.section-wrap {
+    padding: 10px 0px;
+    margin: 0px 0 0 50px;
+    border-bottom: 0.5px solid #efefea;
+}
+
+.heading {
+    font-weight: 600;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.sub-heading {
+    font-size: 14px;
+    margin: 5px 0;
+    color: gray
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.subheading-value {
+    font-size: 14px;
+    color: gray;
+}
+
+.chip-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 100%; */
+}
+
+.chip {
+    /* margin: 0 7px 8px 0; */
+    font-size: 13px;
+    color: #333;
+    list-style: none;
+    margin-right: 4px;
+}
+
+.chip span {
+    position: relative;
+    left: -2px;
+}
+
+hr {
+    border-color: #efefea;
+    border-width: 00.5px;
+}
+
+.header-footer-div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    background-color: #333;
+    color: #fff;
+    font-size: 20px;
+}
+
+.dot {
+    width: 10px;
+    position: relative;
+    height: 10px;
+    border-radius: 20px;
+    margin-right: 7px;
+    display: inline-block;
+}
+
+.online {
+    background: rgb(70, 171, 78);
+}
+
+.offline {
+    background-color: rgb(212, 78, 78);
+}
+
+.not-connected {
+    background-color: rgb(237, 192, 85);
+}
+
+#logo {
+    width: 100px;
+    height: auto;
+}
+
+.chart-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
     text-align: center;
 }
+
+/* .chart-wrap div {
+    width: 45%
+} */

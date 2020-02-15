@@ -16,11 +16,12 @@ class MyPDFView(View):
             show_content_in_browser=True,
             cmd_options={
                 "margin-top": 10,
-                "zoom": 1,
+                "zoom": 2,
                 "viewport-size": "1366 x 513",
                 "javascript-delay": 500,
-                "footer-center": "[page]/[topage]",
-                "no-stop-slow-scripts": True
+                "page-size": "A4",
+                "background": True,
+                "no-stop-slow-scripts": True,
             }
         )
         return response
