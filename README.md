@@ -3,6 +3,8 @@ This project contains the code to render pdf from Django templates containing ja
 
 Reference Tutorial: https://codehustle.wordpress.com/2016/07/16/html-to-pdf-in-django-using-wkhtmltopdf/
 
+List of options that can be passed to wkhtmltopdf: https://wkhtmltopdf.org/usage/wkhtmltopdf.txt
+
 # Steps to run the project
 step1: Download and install appropriate package of wkhtmltopdf from https://wkhtmltopdf.org/
 
